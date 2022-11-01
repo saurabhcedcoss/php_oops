@@ -1,15 +1,20 @@
 <?php
-// classs without construct
+// classs with construct
 class login
 {
-    public $username = "BLANK USERNAME";
-    public $password = "BLANK PASSWORD";
+    public $username;
+    public $password;
+    function __construct($user="BLANK USERNAME", $pass="BLANK PASSWORD")
+    {
+        $this->username = $user;
+        $this->password = $pass;
+    }
     function get_credentials(){
-        echo "Your Username : ".$this->username." and Password : ".$this->password;
+        echo "Your Username : ".$this->username." and Password : ".$this->password ."<br>";
     }
 }
-$disp = new login();
-$disp->username="SAM";
-$disp->password=12345;
-$disp->get_credentials();
+$dispblank = new login();
+$dispdata = new login("SAM",12345);
+$dispblank->get_credentials();
+$dispdata->get_credentials();
 ?>
